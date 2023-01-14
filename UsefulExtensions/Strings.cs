@@ -30,7 +30,7 @@ namespace UsefulExtensions.Strings
         /// <summary>
         /// Writes a string as a stream
         /// </summary>
-        /// <param name="value">String/byte array that should be written as a stream</param>
+        /// <param name="value">String that should be written as a stream</param>
         /// <param name="encoding">Encoding in which the stream should be written</param>
         /// <returns>Stream with the value as its buffer</returns>
         public static Stream AsStream(this string value, Encoding? encoding = null)

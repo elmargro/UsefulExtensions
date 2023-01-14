@@ -9,10 +9,10 @@ namespace UsefulExtensions.Numbers
         /// </summary>
         /// <typeparam name="T">Number type</typeparam>
         /// <param name="value">Given number type value</param>
-        /// <returns>Zero if value is null, otherwise the value</returns>
-        public static T Value<T>(this T? value) where T : INumber<T>
+        /// <returns>Zero if value is null or not a number, otherwise the value</returns>
+        public static T Value<T>(this T? value) where T : struct, INumber<T>
         {
-            return value is null ? T.Zero : value;
+            return value is not null && !T.IsNaN((T)value) ? (T)value : T.Zero;
         }
 
         /// <summary>
@@ -20,10 +20,10 @@ namespace UsefulExtensions.Numbers
         /// </summary>
         /// <typeparam name="T">Number type</typeparam>
         /// <param name="value">Given number type value</param>
-        /// <returns>True if the value is not null</returns>
-        public static bool HasValue<T>(this T? value) where T : INumber<T>
+        /// <returns>True if the value is not null or not a number</returns>
+        public static bool HasValue<T>(this T? value) where T : struct, INumber<T>
         {
-            return value is not null;
+            return value is not null && !T.IsNaN((T)value);
         }
 
         /// <summary>
@@ -31,10 +31,10 @@ namespace UsefulExtensions.Numbers
         /// </summary>
         /// <typeparam name="T">Number type</typeparam>
         /// <param name="value">Given number type value</param>
-        /// <returns>True if the value is not null or zero</returns>
-        public static bool HasActualValue<T>(this T? value) where T : INumber<T>
+        /// <returns>True if the value is not null, not a number or zero</returns>
+        public static bool HasActualValue<T>(this T? value) where T : struct, INumber<T>
         {
-            return value is not null && value != T.Zero;
+            return value is not null && value != T.Zero && !T.IsNaN((T)value);
         }
     }
 }
