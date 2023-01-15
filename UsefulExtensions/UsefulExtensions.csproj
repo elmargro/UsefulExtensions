@@ -5,6 +5,27 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Version>1.0</Version>
+    <PackageId>UsefulDotNetExtensions</PackageId>
+    <Authors>Elmar Grohmann</Authors>
+    <Company>---</Company>
+    <PackageProjectUrl>https://github.com/elmargro/UsefulExtensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/elmargro/UsefulExtensions</RepositoryUrl>
+    <PackageTags>Extensions;extensions</PackageTags>
+    <Description>Useful .NET extensions</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Title>Useful .NET Extensions</Title>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
